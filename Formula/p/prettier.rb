@@ -3,19 +3,19 @@ require "language/node"
 class Prettier < Formula
   desc "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML"
   homepage "https://prettier.io/"
-  url "https://registry.npmjs.org/prettier/-/prettier-3.3.0.tgz"
-  sha256 "4b2b347100ba4f9fbf35df3295ba3cf3438d9f967b267c1aa8e2c943f8ee1c0d"
+  url "https://registry.npmjs.org/prettier/-/prettier-3.3.2.tgz"
+  sha256 "612c21a86f7bdbcdd57ce0d1b3f6f205705f5e673310513ebf3f587d63c34cec"
   license "MIT"
   head "https://github.com/prettier/prettier.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, sonoma:         "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, ventura:        "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, monterey:       "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b0cdaffdc7bd1af6150b504029a5827e7d71c132d09601abf0253569b0d10f9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bf27af9f228a7857a92e337e48b8c452b8706dc85f0720b4ff01597672fb83c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf27af9f228a7857a92e337e48b8c452b8706dc85f0720b4ff01597672fb83c9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf27af9f228a7857a92e337e48b8c452b8706dc85f0720b4ff01597672fb83c9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bf27af9f228a7857a92e337e48b8c452b8706dc85f0720b4ff01597672fb83c9"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf27af9f228a7857a92e337e48b8c452b8706dc85f0720b4ff01597672fb83c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf27af9f228a7857a92e337e48b8c452b8706dc85f0720b4ff01597672fb83c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1c6f6d9aa72c4ca1d1d2b824494ce415a086497821537eb0aed76824de5a68f"
   end
 
   depends_on "node"

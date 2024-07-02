@@ -1,8 +1,8 @@
 class Moon < Formula
   desc "Task runner and repo management tool for the web ecosystem, written in Rust"
   homepage "https://moonrepo.dev/moon"
-  url "https://github.com/moonrepo/moon/archive/refs/tags/v1.25.2.tar.gz"
-  sha256 "885a2100b0cad6d32d2453cec8dac3f1f002c44942a1d24199b1cc360708e271"
+  url "https://github.com/moonrepo/moon/archive/refs/tags/v1.26.6.tar.gz"
+  sha256 "aa27c71d3478e55ed75ad0ec5f8a2f81ecb855b4b67e9addd4601292ece9b2a9"
   license "MIT"
   head "https://github.com/moonrepo/moon.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Moon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac0b2cd4bdf87236026009f3af060e828ccc42d2fa8f9a75dcaaa457269c73dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c1f4d3c626582ac1c3961e1cf4b32fe4f3b93933baee909cac375e21aafdebe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "722dbbdbbe37dd8f591e62b9f1eca64a915986fcb1e2d8efb802edc40d00e9e2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "84fe823f5b84be7f8dda82e8cbadf0ab226fbf6056fd0030a43b4ef37d19780f"
-    sha256 cellar: :any_skip_relocation, ventura:        "626585f7b70a87815537ddac7a58a7fb7133cb82cce6625ff73d4e10d29aa6e1"
-    sha256 cellar: :any_skip_relocation, monterey:       "a5f91e306828565473ba63e38a84ac2e94bd3e965a027f42d22ce70478942bf2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "254189030f2f91f44d77f8f7ce02cbe61d7c9d41b6f83816f38e7b77f152459b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f70a244dabecac887a0067974dbdfa356cdadaa03030c1f824e29580eb14c01"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c81861b9f5f6e8873b4f152d1bc3bc254a357abfd0b4fe8728c9109db406dcc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "10d5d5047b1e1dff2249a60929daa73adf562667e15ba5cf52f0b6569a7f283e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aee7e95e115855b1526b9a1dde1279467398f059006e7be5aee43de665df5745"
+    sha256 cellar: :any_skip_relocation, ventura:        "ca34495878246eb495c7fbde688f26e1ac833276a3f168ec1045ecc4f3465c65"
+    sha256 cellar: :any_skip_relocation, monterey:       "efc1c1654d2221a7a1a369e784170804f10d3e42c332e73d32928cc57abbca67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be3a3ce6e88f7e44ea0809a49f1a3bc12e103764a672644b014ace5e996ebb9c"
   end
 
   depends_on "pkg-config" => :build
@@ -30,7 +30,7 @@ class Moon < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "legacy/cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/cli")
     generate_completions_from_executable(bin/"moon", "completions", "--shell")
 
     bin.each_child do |f|

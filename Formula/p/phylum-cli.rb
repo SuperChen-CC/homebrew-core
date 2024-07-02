@@ -1,19 +1,19 @@
 class PhylumCli < Formula
   desc "Command-line interface for the Phylum API"
   homepage "https://www.phylum.io"
-  url "https://github.com/phylum-dev/cli/archive/refs/tags/v6.5.0.tar.gz"
-  sha256 "117ef6af0bd17a623d1545a00c0e9a404fcb3cab34b32888dfca0302268a4d15"
+  url "https://github.com/phylum-dev/cli/archive/refs/tags/v6.6.4.tar.gz"
+  sha256 "92943eaed3207e2dc4f1cd3b9216319d747c12a36bec9ace8aa84ddb8218cb92"
   license "GPL-3.0-or-later"
   head "https://github.com/phylum-dev/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3a3df1fd3b64dd8516886d9a9792a3b8b491e788661287690deed3f72ccbf963"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ff61c6cf3a37c2b7d50ce4163c707a124696249409cc7c4d9379bb0428e4767"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e87f3fcee64b8fa27b9211c057a61a93c7ee77ea87b9b93f1dec1ca5bdf17c94"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3208b9159fb664361373068fade3720ed59e213975383c1807fb22dc0dbc6694"
-    sha256 cellar: :any_skip_relocation, ventura:        "69abeccdb4a9995de288f25bb8ef820d3ad4dbf9783a1459d90daf1e38a55c95"
-    sha256 cellar: :any_skip_relocation, monterey:       "463bce7193d20e84a073663da514e09c016139995bdfd5413073327a12318a45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8e1974d4d459978ccb03d9a71c2d873558b05c7a2331adab3623758d3e91761"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d8731f22098f84d31bbc21a9eb2b828c9989e5a1aea3c6f5fc8591e1d5ebf5b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7799f2f169f5c61e3b989229d8e47397694e5e865bf4e802b7f7ee626d3c4cd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bca2104005359b91abf8e6fba66a29ab1d7df628e98952d2439c100a808bad4c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6cf53b2d28b73381f3eaa1b87c38b24ad946d57a6f40fbcfcc051ac881b752f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "8f5679d54920034397f2718f6a1cb539f3e1157f3e4debf8cbcb3fc27a2acd82"
+    sha256 cellar: :any_skip_relocation, monterey:       "09420d1b78b5437d6795ad0de496fba718711e54fc59be294b36b92137fa7f95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "814ff8430e5007ede1f4634411f021906691f4e0861687072466363adecb9ba7"
   end
 
   depends_on "protobuf" => :build

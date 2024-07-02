@@ -3,19 +3,19 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/35/a5/52af77c7a347757c9890dcfbb10f5e13e8ef778dbc2cb8ff18cfc66c462e/ldeep-1.0.56.tar.gz"
-  sha256 "bff4b348eecc80f307771cc0d49ec2f497430bdda9fbb78252455ade4c35eb00"
+  url "https://files.pythonhosted.org/packages/92/29/be36b5460cc1f4c38e4d20730a747e91106fd58e64464fca23f729135523/ldeep-1.0.58.tar.gz"
+  sha256 "c17312ff41e7b23859699f725e809b24a2af596685c7fab53f3ee957a39282fa"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af4a0c38d15a5a05033eae9238b8279d82e56c21c7ffe0088d32b865bb4c755c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "748d40485d97afea26fdf9f940e67443b2db0875b11d86dadf27dbe0cb269f5a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4c0712ef59a318c82fe9ee2a385d9cb5ac2980cbe92c6250584e7c100a7518b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f8465bc04922b7e02ef74f11324b40494060c6a20e08dd7365526aecf609aaea"
-    sha256 cellar: :any_skip_relocation, ventura:        "e68d6c1279a96589e1dbdeef4c257c67f10514ca9af4e0173781b809e71e00dd"
-    sha256 cellar: :any_skip_relocation, monterey:       "17831ed678e34cdfcae13580eb843ce6eb5d12bbd6c80074f7a7e236c940af2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a1329833a5d423e95a4c6dd4f7e01c8e37af2c374c17e345e238928fbd5ec700"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d5f63da9ff2758582979639b1824b8a2e913c40ac336e6321ca713ac4f209f4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a330577cd0ef7c139cb5d0aeed60d97227535cae2c06f3fcc2151135653d7285"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c907057a5a35f8ebf946c9681cf3374cf227612e224d821141bc36b7170842c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "892e0e4acc12b326af1f99cf9352aa51b9e45e084426a93685f1c61dca84343c"
+    sha256 cellar: :any_skip_relocation, ventura:        "030ed202034f43c560d8924687fb7716e634e8d82b6222d5633a31356bce2c94"
+    sha256 cellar: :any_skip_relocation, monterey:       "0dcd04aec4833b6a74cc8f79ba06d1565629da0dfa58122262e6480c81ccf072"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f904e01ba4795a48ff5cd34624a8780425e6aa2662ecb1c8146baf8b7d0994d"
   end
 
   depends_on "cryptography"
@@ -88,9 +88,6 @@ class Ldeep < Formula
     sha256 "e4d936c9de8727928f3be6079590e97d9abfe8d39a590be678eb5919ffc186bb"
   end
 
-  # add missing VERSION file, upstream pr ref, https://github.com/franc-pentest/ldeep/pull/78
-  patch :DATA
-
   def install
     virtualenv_install_with_resources
   end
@@ -100,29 +97,3 @@ class Ldeep < Formula
     assert_match "[!] Unable to open connection with ldap://127.0.0.1:389", output
   end
 end
-
-__END__
-diff --git a/VERSION b/VERSION
-new file mode 100644
-index 0000000..ed453e6
---- /dev/null
-+++ b/VERSION
-@@ -0,0 +1 @@
-+1.0.56
-diff --git a/pyproject.toml b/pyproject.toml
-index fcb3ac1..8b58514 100644
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -45,6 +45,12 @@ Homepage = "https://github.com/franc-pentest/ldeep"
- [project.scripts]
- ldeep = "ldeep.__main__:main"
-
-+[tool.pdm.build]
-+includes = [
-+    "ldeep/**",
-+    "VERSION",
-+]
-+
- [tool.pdm.version]
- source = "call"
- getter = "ldeep:get_version"
