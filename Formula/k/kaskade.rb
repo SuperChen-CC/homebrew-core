@@ -3,18 +3,18 @@ class Kaskade < Formula
 
   desc "TUI for Kafka"
   homepage "https://github.com/sauljabin/kaskade"
-  url "https://files.pythonhosted.org/packages/bb/de/32612086137119208038f7b978def5ac4f19669614fd89f2b1489d3c10b6/kaskade-2.1.6.tar.gz"
-  sha256 "2a8015b4c6b3c3a121ba73c3ffd87af48e687c5d812de6d257239f12090a1235"
+  url "https://files.pythonhosted.org/packages/60/b7/ae8ef2fe9df50ace6870124647ab4115604ee89e012551c4093685d5d240/kaskade-2.3.2.tar.gz"
+  sha256 "2d43877270a7a4f18b2ec0d081800eefa170cff026a3f6cc1e78dff3ca672ce2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e958d67c3c78ac84478cdc8c7a52b5b64587fdbc4401dd43ac8911612cebb49a"
-    sha256 cellar: :any,                 arm64_ventura:  "cb5d158786b377b1556aba54c1b94d9418b2645fdc77117e25afc45e5be73529"
-    sha256 cellar: :any,                 arm64_monterey: "654f49e92cfb3fb746aa29c22b16a72a5dd4e726d5a979d8c23a59e3793e07df"
-    sha256 cellar: :any,                 sonoma:         "97f6198d30c0993463ca66509928a41f5ded4fd409e3692e71cb1e9f15b49795"
-    sha256 cellar: :any,                 ventura:        "2a6242da2f701f112778d29edf7efd14d36c4ce6eeb76e7186a4512e44c0478c"
-    sha256 cellar: :any,                 monterey:       "8551c854dc0e35261bfeb785cf742d8bd52c9b29e936d03d91e83f287e2b4fe3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f5e1a9282d75d8bb261cd74ac5cd279fcdfe72cbf3045a566a07a144041b712"
+    sha256 cellar: :any,                 arm64_sonoma:   "58cecb85df1c66ada66403cde4b5f5e36e106ee46dd80a6c7d8da7b9e421421e"
+    sha256 cellar: :any,                 arm64_ventura:  "ad7ae99d013a16655762e99d7ef8a0e7992fb0f7296f9a049164ae9a06a4f5af"
+    sha256 cellar: :any,                 arm64_monterey: "55a1bc40692b25afbd67d82446652df68d0323062d5f7c833eb9e40c0a3c43d1"
+    sha256 cellar: :any,                 sonoma:         "c63b5dee4192226af4faabc54c6b86406121d3354fb85551b84dd90a5c8e4f69"
+    sha256 cellar: :any,                 ventura:        "7d14ca84860fb9b3d6080df8cf80eabe88175a7c66445238d9a95140abcd0b76"
+    sha256 cellar: :any,                 monterey:       "069f6e101ed9cbff1485af1f6ea2344cc18d4b521ffda3527886a246f13e710a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d3038a23d716be40237f2d80ee58636d8d3214483b5f2607a57bd17ee600d40"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -40,6 +40,11 @@ class Kaskade < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
     sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+  end
+
+  resource "cloup" do
+    url "https://files.pythonhosted.org/packages/cf/71/608e4546208e5a421ef00b484f582e58ce0f17da05459b915c8ba22dfb78/cloup-3.0.5.tar.gz"
+    sha256 "c92b261c7bb7e13004930f3fb4b3edad8de2d1f12994dcddbe05bc21990443c5"
   end
 
   resource "confluent-kafka" do
@@ -148,7 +153,7 @@ class Kaskade < Formula
 
   test do
     r, _w, pid = PTY.spawn("#{bin}/kaskade admin -b localhost:9092")
-    assert_match "all:     escape describe: enter", r.readline
+    assert_match "\e[?1049h\e[?1000h\e[?1003h\e[?1015h\e[?1006h\e[?25l", r.readline
 
     assert_match version.to_s, shell_output("#{bin}/kaskade --version")
   ensure
